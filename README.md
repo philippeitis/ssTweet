@@ -1,7 +1,15 @@
-### About
+#### About
 ssTweet is a twitter bot which would upload the screenshot of every tweet in a thread to Google Photos.
 
-### To-do
+#### sorted stuff that can be reused
+1. Wrote a Python client library for dealing with Google Photos API. Explore the Media and Authorization classes inside the src folder for easy access to almost all functions related to uploading stuff over Photos and creating albums.
+
+
+#### contributions
+* If you see my code getting devaiated from the [Python Coding Style Guide](https://www.python.org/dev/peps/pep-0008/). Please raise an issue or submit a pull request.
+* If you see something that could have been more Pythonic or something that violates the rule of keeping it simple. Please raise an issue or change it yourself.
+
+#### To-do
 - [x] Write a quick python module to prove the concept if everything works as expected. hard code most of the things.
 - [x] Write a python module to give url and generate screenshot to local machine.
 - [x] Write a python module to upload an image to Google Photos from a locally stored image.
