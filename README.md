@@ -8,7 +8,7 @@ ssTweet is a twitter bot which would upload the screenshot of every tweet in a t
 - [x] Mix up the two modules to generate & upload in one go.
 - [ ] Improve the code quality, darling.
     - [x] Log every step into a log file as the code runs using the log module.
-    - [ ] Classes for Albums, Users, Photos, Tweet Authors.
+    - [x] Classes for Albums, Users, Photos, Tweet Authors.
     - [ ] Add unit tests.
 - [ ] Solve the issue for authenticating account every time uploading a photo to Photos using `refresh_tokens`
 - [ ] Get the `url_list` of every tweet in a thread from the URL of first tweet.
