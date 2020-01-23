@@ -2,7 +2,7 @@ import requests
 import json
 import base64
 
-def saveImage(url, mode, name):
+def save_image(url, mode, name):
     api_url = 'https://www.googleapis.com/pagespeedonline/v4/runPagespeed?screenshot=true&strategy=' + mode + '&url=' + url
     resp = requests.request(method = 'get', url = api_url)
     data = resp.json()
