@@ -12,7 +12,7 @@ class Media:
         params = {
             'excludNonAppCreatedData': created_by_app
         }
-        while True:
+        while True: 
             albums = self.session.get(self.album_url,params=params).json()
             # albums = self.session.request('GET','https://photoslibrary.googleapis.com/v1/albums').json()
             # albums = {'albums': [{'id': 'AJ8vYPyyd6apDnQRxe6F_OStKDwA_5jYpI5J6Rc9-EQYeSAKo8l6y1BLbSw-hZSgnXJxGvw4TIz2', 'title': 'ssTweet', 'productUrl': 'https://photos.google.com/lr/album/AJ8vYPyyd6apDnQRxe6F_OStKDwA_5jYpI5J6Rc9-EQYeSAKo8l6y1BLbSw-hZSgnXJxGvw4TIz2', 'isWriteable': True, 'coverPhotoBaseUrl': 'https://lh3.googleusercontent.com/lr/AGWb-e6yGsCfr5YaqQ0vhuJMz7yK_5K89EMLBZzFZxI-vBbFpjRfJdjfke0c1cVToeRpMaoBfqWr2owTb59u1gj94SgQ9W8KY6zJ2XGgORnNGeJUssq9dx8kLREaFgFip-_l2Q3pJ9OCZAJEVi0dL50gksJ3jUdNBAX5TSjZGeyvALz-aQNtjxmmnD3Mm6kgTVh7rSwaYPuA7AG2qN8oGioDO2wL6qgbFKx4rhKDvGzySdST6fo1BV7r2UA76yYHeUJ5flEUSiFmYxcsiQkHTExfWzVsG5jERlCqpWmzZb1ZIVV26QVV4aux1EZtUwveePIuY8hntKNLSBi3PTi27ahXGMm8VW8tL5B67NC7vY7YHJCxaPKg8bA2mlNA_hdRM315UqMsOHnrPq78NiLxuWMlGUcRVe8EoOuof9AIQAo9TDaJmzFliSjMDAFPWGfBsUJeQ5SWCfSQ-NcJH5J0x3ag-7NRPJ3j7Bru_O3eo7RkwvBtvM3_fu5nswHYQZeanCVgvv1qv1nMKYul1q6FI0lnvYXLXeZLHhXryhLN3xlwT0DaAj0XqVQEhrUdnJCtiXbN0aMy62n2lQYsXAkuTxzJpc_TbmqiLQ4C2ep4H0ajMhLwGGwR_WV9xgLyzMOFAQlg7usBmxx8QUJ_jWzEPpSh-l6NmAg8nBUTUwc2vzDrUBa6AwpvqsDwh3oHiT1ll2HeWDqPYFFj_p0SFvcXK0dHnd27M8-Xr4Yp3JflFuQq0DL6mESGlwq7XL_4gmPgzYqDathAJn61yEyHTN0lcPWBo03dgs5QLlMnQVqiHRhrGLH_XGP1cmtLdgw'}]} 

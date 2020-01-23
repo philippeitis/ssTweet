@@ -2,6 +2,7 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import AuthorizedSession
 from google.oauth2.credentials import Credentials
 import logging
+import json
 
 class Authorization:
     def __init__(self, scopes):
@@ -19,13 +20,14 @@ class Authorization:
         cred = None
         if(auth_file):
             try:
-                cred = Credentials.from_authorized_user_info(auth_file, self.scopes)
+                cred = Credentials.from_authorized_user_file(auth_file, self.scopes)
                 return cred
             except ValueError as err:
                 logging.error('the info (auth file) is not in the expected format: {}'.format(err))
                 return None
         if(cred==None):
             cred = self.prompt_user_for_credentials(self.scopes)
+            return cred
 
     def get_auth_session(self, cred):
         session = AuthorizedSession(cred)

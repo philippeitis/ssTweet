@@ -7,6 +7,7 @@ __pycache__/
 *.so
 
 # Distribution / packaging
+client_id.json
 .Python
 build/
 develop-eggs/

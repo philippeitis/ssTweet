@@ -7,8 +7,8 @@ def main():
     filename='sample_tweet'
     photo_list=[filename+'.jpg']
     album_title='ssTweet'
-    auth_file_name=None
-    # auth_file_name='client_id.json'
+    # auth_file_name=None
+    auth_file_name='client_id.json'
 
     save_image(url, mode, filename)
     upload_image(photo_list, album_title, auth_file_name)
