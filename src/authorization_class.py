@@ -16,7 +16,7 @@ class Authorization:
 
     def prompt_user_for_credentials(self, scopes):
         flow = InstalledAppFlow.from_client_secrets_file(
-            '/Users/lavishsaluja/client_id.json',
+            '/Users/lavishsaluja/credentials/photos_client_id.json',
             scopes=scopes)
         logging.info('Prompting user to login to get their credentials for the defined scopes')
         cred = flow.run_local_server(host='localhost', port=8080, 
