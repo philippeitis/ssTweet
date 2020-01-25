@@ -1,21 +1,31 @@
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import AuthorizedSession
 from google.oauth2.credentials import Credentials
-import logging
 import json
+import logging
+logging.basicConfig(format='%(asctime)s %(module)s.%(funcName)s:%(levelname)s:%(message)s',
+                    datefmt='%m/%d/%Y %I_%M_%S %p',
+                    filename='log_file',
+                    level=logging.INFO)
+
 
 class Authorization:
     def __init__(self, scopes):
         self.scopes = scopes
 
+
     def prompt_user_for_credentials(self, scopes):
-        flow = InstalledAppFlow.from_client_secrets_file('client_id.json', scopes)
+        flow = InstalledAppFlow.from_client_secrets_file(
+            '/Users/lavishsaluja/client_id.json',
+            scopes=scopes)
+        logging.info('Prompting user to login to get their credentials for the defined scopes')
         cred = flow.run_local_server(host='localhost', port=8080, 
-                                        authorization_prompt_message='Please visit this URL to authorize this application: {url}', 
-                                        success_message='The authentication flow has completed. You may close this window.', 
+                                        authorization_prompt_message='', 
+                                        success_message="Thank you for verification. You may close this window now.\n\n\n\n\nIf you're curious to know what happened: The authentication has been completed and we have got your credentials, if we get them right, we'll be uploading the screenshots of your tweets to your Photos account as a next step. Try refreshing your Photos app.", 
                                         open_browser=True)
         return cred
     
+
     def get_credentials(self, auth_file):
         cred = None
         if(auth_file):
@@ -28,6 +38,7 @@ class Authorization:
         if(cred==None):
             cred = self.prompt_user_for_credentials(self.scopes)
             return cred
+
 
     def get_auth_session(self, cred):
         session = AuthorizedSession(cred)

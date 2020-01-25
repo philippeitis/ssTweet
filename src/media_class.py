@@ -1,38 +1,44 @@
 import logging
+import json
+logging.basicConfig(format='%(asctime)s %(module)s.%(funcName)s:%(levelname)s:%(message)s',
+                    datefmt='%m/%d/%Y %I_%M_%S %p',
+                    filename='log_file',
+                    level=logging.INFO)
 
 class Media:
     def __init__(self, session):
         self.session = session
     
+
     album_url = 'https://photoslibrary.googleapis.com/v1/albums'
     upload_url = 'https://photoslibrary.googleapis.com/v1/uploads'
     media_items_url = 'https://photoslibrary.googleapis.com/v1/mediaItems:batchCreate'
+    
 
-    def get_albums(self, created_by_app = False):
+    def get_albums(self, created_by_app=False):
         params = {
-            'excludNonAppCreatedData': created_by_app
+                'excludeNonAppCreatedData': created_by_app
         }
-        while True: 
-            albums = self.session.get(self.album_url,params=params).json()
-            # albums = self.session.request('GET','https://photoslibrary.googleapis.com/v1/albums').json()
-            # albums = {'albums': [{'id': 'AJ8vYPyyd6apDnQRxe6F_OStKDwA_5jYpI5J6Rc9-EQYeSAKo8l6y1BLbSw-hZSgnXJxGvw4TIz2', 'title': 'ssTweet', 'productUrl': 'https://photos.google.com/lr/album/AJ8vYPyyd6apDnQRxe6F_OStKDwA_5jYpI5J6Rc9-EQYeSAKo8l6y1BLbSw-hZSgnXJxGvw4TIz2', 'isWriteable': True, 'coverPhotoBaseUrl': 'https://lh3.googleusercontent.com/lr/AGWb-e6yGsCfr5YaqQ0vhuJMz7yK_5K89EMLBZzFZxI-vBbFpjRfJdjfke0c1cVToeRpMaoBfqWr2owTb59u1gj94SgQ9W8KY6zJ2XGgORnNGeJUssq9dx8kLREaFgFip-_l2Q3pJ9OCZAJEVi0dL50gksJ3jUdNBAX5TSjZGeyvALz-aQNtjxmmnD3Mm6kgTVh7rSwaYPuA7AG2qN8oGioDO2wL6qgbFKx4rhKDvGzySdST6fo1BV7r2UA76yYHeUJ5flEUSiFmYxcsiQkHTExfWzVsG5jERlCqpWmzZb1ZIVV26QVV4aux1EZtUwveePIuY8hntKNLSBi3PTi27ahXGMm8VW8tL5B67NC7vY7YHJCxaPKg8bA2mlNA_hdRM315UqMsOHnrPq78NiLxuWMlGUcRVe8EoOuof9AIQAo9TDaJmzFliSjMDAFPWGfBsUJeQ5SWCfSQ-NcJH5J0x3ag-7NRPJ3j7Bru_O3eo7RkwvBtvM3_fu5nswHYQZeanCVgvv1qv1nMKYul1q6FI0lnvYXLXeZLHhXryhLN3xlwT0DaAj0XqVQEhrUdnJCtiXbN0aMy62n2lQYsXAkuTxzJpc_TbmqiLQ4C2ep4H0ajMhLwGGwR_WV9xgLyzMOFAQlg7usBmxx8QUJ_jWzEPpSh-l6NmAg8nBUTUwc2vzDrUBa6AwpvqsDwh3oHiT1ll2HeWDqPYFFj_p0SFvcXK0dHnd27M8-Xr4Yp3JflFuQq0DL6mESGlwq7XL_4gmPgzYqDathAJn61yEyHTN0lcPWBo03dgs5QLlMnQVqiHRhrGLH_XGP1cmtLdgw'}]} 
+        while True:
+            albums = self.session.get(self.album_url, params=params).json()
             logging.debug("response: {}".format(albums))
-            if('albums' in albums):
-                for album in albums['albums']:
+            if 'albums' in albums:
+                for album in albums["albums"]:
                     yield album
-                if('nextPageToken' in albums):
-                    params['page_token'] = albums['nextPageToken']
+                if 'nextPageToken' in albums:
+                    params["pageToken"] = albums["nextPageToken"]
                 else:
                     return
             else:
                 return
     
+
     def create_new_album_id(self, album_title):
-        body = {
+        body = json.dumps({
             'album': {
                 'title': album_title
             }
-        }
+        })
         album = self.session.post(self.album_url, body).json()
         if('id' in album):
             logging.info('created album: {}'.format(album_title))
@@ -41,8 +47,9 @@ class Media:
             logging.error('some error occured. could not create or find an existing album. response: {}'.format(album))
             return None
 
+
     def retrieve_album_id(self, album_title):
-        for album in self.get_albums(True):
+        for album in self.get_albums():
             if(album['title'].lower() == album_title.lower()):
                 logging.info("existing album: {}".format(album_title))
                 return album['id']
@@ -66,18 +73,8 @@ class Media:
             self.session.headers['X-Goog-Upload-File-Name'] = photo_name
             upload_token = self.session.post(self.upload_url, bytes)
             if(verify_upload_token(upload_token)):
-                body = {
-                    'albumId': album_id,
-                    'newMediaItms': [
-                        {
-                            'description':'automatically generated screenshot by your twitter bot',
-                            'simpleMediaItem': {
-                                'uploadToken': upload_token
-                            }
-                        }
-                    ]
-                }
-                new_media_items_result = self.session.post(url=self.media_items_url, data=body)
+                body = json.dumps({"albumId":album_id, "newMediaItems":[{"description":"","simpleMediaItem":{"uploadToken":upload_token.content.decode()}}]}, indent=4)
+                new_media_items_result = self.session.post(url=self.media_items_url, data=body).json()
                 log_upload_activity(new_media_items_result, photo_name)
         try:
             del(session.headers['Content-type'])
@@ -85,6 +82,7 @@ class Media:
             del(session.headers['X-Goog-Upload-File-Name'])
         except:
             pass
+
 
 # helper functions for the class
 def log_upload_activity(response, photo_name):
@@ -94,9 +92,9 @@ def log_upload_activity(response, photo_name):
         if(status.get('code') and (status.get('code') > 0)):
             logging.error('could not add {photo_name} to the album. message: {message}'.format(photo_name=photo_name, message=status['message']))
         else:
-            logging.info('Added {photo_name} to your album'.format(photo_name))
+            logging.info('Added {photo_name} to your album'.format(photo_name=photo_name))
     else:
-        logging.error('could not add your photo {photo_name} to the album. Here is the error message {message}'.format(photo_name=photo_name, message=response))
+        logging.error('could not add your photo to the album you requested')
 
 
 def verify_upload_token(upload_token):
