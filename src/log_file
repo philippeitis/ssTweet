@@ -1,0 +1,7 @@
+01/26/2020 09_55_10 PM main.main:INFO:
+
+01/26/2020 09_57_05 PM main.main:INFO:
+
+01/26/2020 09_57_44 PM main.main:INFO:
+
+01/26/2020 09_57_51 PM authorization_class.get_credentials:ERROR:the info (auth file) is not in the expected format: Authorized user info was not in the expected format, missing fields refresh_token, client_secret, client_id.

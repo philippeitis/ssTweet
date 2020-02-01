@@ -7,7 +7,6 @@ __pycache__/
 *.so
 
 # Distribution / packaging
-client_id.json
 .Python
 build/
 develop-eggs/
@@ -128,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# log files
+.log
+
+# editor file
+.vscode
