@@ -6,11 +6,6 @@ import twitter
 import urllib.parse
 from os import environ as e
 
-e["CONSUMER_KEY"]="rIEFOTEiCOIeKavigK8vnrbhW"
-e["CONSUMER_SECRET"]="cpeB9KIU9CQDtCxXSX5DfB17GxZ51x7jNleJCgsbIMqaOKP130"
-e["ACCESS_TOKEN"]="2935952994-6Xa2z2PdifKEg9Jo4sEgGXPCsparDdRH1dyf90v"
-e["ACCESS_TOKEN_SECRET"]="psQbEZxtjHcnVWeG8b5fyX6PMExW2qQ8oxCEoDIzWo0RC"
-
 t = twitter.Api(
     consumer_key=e["CONSUMER_KEY"],
     consumer_secret=e["CONSUMER_SECRET"],
