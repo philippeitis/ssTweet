@@ -5,6 +5,8 @@ import logging
 import twitter
 import urllib.parse
 from os import environ as e
+sys.path.insert(1, '/Users/lavishsaluja/credentials/')
+import fetch_tweet_cred # fetch_tweet_cred.py contains the environment variables for Twitter access key & tokens
 
 t = twitter.Api(
     consumer_key=e["CONSUMER_KEY"],
@@ -82,6 +84,7 @@ tweet = {
 
 if __name__ == "__main__":
     logging.basicConfig(filename="replies.log", level=logging.INFO)
+    logging.info('\n main called:')
     tweets_file = sys.argv[1]
     # for tweet in get_tweets(tweets_file):
     for reply in get_replies(tweet):
