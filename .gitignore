@@ -132,4 +132,7 @@ dmypy.json
 .log
 
 # editor file
-.vscode
+.vscode/
+# logs
+/log_file
+/.DS_Store
