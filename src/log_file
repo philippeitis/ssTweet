@@ -1,0 +1,33 @@
+02/05/2020 06_16_55 PM authorization_class.prompt_user_for_credentials:INFO:Prompting user to login to get their credentials for the defined scopes
+02/05/2020 06_22_54 PM authorization_class.prompt_user_for_credentials:INFO:Prompting user to login to get their credentials for the defined scopes
+02/05/2020 06_23_11 PM flow.log_message:INFO:"GET /?state=nWDme9xc5ySEZ4ICVzL5bVt4v0gbdi&code=4/wAGIwm8YM_zXKXr-AjorVEGbg0vxAb9Q2XWTqMZB2heVME70Njn0mIvCHH-zxt0agB4MxeIY9fCMToJocb5DF-k&scope=https://www.googleapis.com/auth/photoslibrary.sharing%20https://www.googleapis.com/auth/photoslibrary HTTP/1.1" 200 318
+02/05/2020 06_23_13 PM media_class.retrieve_album_id:INFO:existing album: TweetBot
+02/05/2020 06_23_13 PM media_class.convert_image_to_bytes:ERROR:error: [Errno 2] No such file or directory: '/Users/lavishsaluja/ssTweet/images/neilkakkar.jpg0' reaised while reading the /Users/lavishsaluja/ssTweet/images/neilkakkar.jpg0 file
+02/05/2020 06_23_13 PM media_class.convert_image_to_bytes:ERROR:error: [Errno 2] No such file or directory: '/Users/lavishsaluja/ssTweet/images/neilkakkar.jpg1' reaised while reading the /Users/lavishsaluja/ssTweet/images/neilkakkar.jpg1 file
+02/05/2020 06_23_13 PM media_class.convert_image_to_bytes:ERROR:error: [Errno 2] No such file or directory: '/Users/lavishsaluja/ssTweet/images/neilkakkar.jpg2' reaised while reading the /Users/lavishsaluja/ssTweet/images/neilkakkar.jpg2 file
+02/05/2020 06_23_13 PM media_class.convert_image_to_bytes:ERROR:error: [Errno 2] No such file or directory: '/Users/lavishsaluja/ssTweet/images/neilkakkar.jpg3' reaised while reading the /Users/lavishsaluja/ssTweet/images/neilkakkar.jpg3 file
+02/05/2020 06_23_13 PM media_class.convert_image_to_bytes:ERROR:error: [Errno 2] No such file or directory: '/Users/lavishsaluja/ssTweet/images/neilkakkar.jpg4' reaised while reading the /Users/lavishsaluja/ssTweet/images/neilkakkar.jpg4 file
+02/05/2020 06_23_13 PM media_class.convert_image_to_bytes:ERROR:error: [Errno 2] No such file or directory: '/Users/lavishsaluja/ssTweet/images/neilkakkar.jpg5' reaised while reading the /Users/lavishsaluja/ssTweet/images/neilkakkar.jpg5 file
+02/05/2020 06_23_13 PM media_class.convert_image_to_bytes:ERROR:error: [Errno 2] No such file or directory: '/Users/lavishsaluja/ssTweet/images/neilkakkar.jpg6' reaised while reading the /Users/lavishsaluja/ssTweet/images/neilkakkar.jpg6 file
+02/05/2020 06_23_13 PM media_class.convert_image_to_bytes:ERROR:error: [Errno 2] No such file or directory: '/Users/lavishsaluja/ssTweet/images/neilkakkar.jpg7' reaised while reading the /Users/lavishsaluja/ssTweet/images/neilkakkar.jpg7 file
+02/05/2020 06_23_13 PM media_class.convert_image_to_bytes:ERROR:error: [Errno 2] No such file or directory: '/Users/lavishsaluja/ssTweet/images/neilkakkar.jpg8' reaised while reading the /Users/lavishsaluja/ssTweet/images/neilkakkar.jpg8 file
+02/05/2020 06_23_13 PM media_class.convert_image_to_bytes:ERROR:error: [Errno 2] No such file or directory: '/Users/lavishsaluja/ssTweet/images/neilkakkar.jpg9' reaised while reading the /Users/lavishsaluja/ssTweet/images/neilkakkar.jpg9 file
+02/05/2020 06_23_13 PM media_class.convert_image_to_bytes:ERROR:error: [Errno 2] No such file or directory: '/Users/lavishsaluja/ssTweet/images/neilkakkar.jpg10' reaised while reading the /Users/lavishsaluja/ssTweet/images/neilkakkar.jpg10 file
+02/05/2020 06_23_13 PM media_class.convert_image_to_bytes:ERROR:error: [Errno 2] No such file or directory: '/Users/lavishsaluja/ssTweet/images/neilkakkar.jpg11' reaised while reading the /Users/lavishsaluja/ssTweet/images/neilkakkar.jpg11 file
+02/05/2020 06_23_13 PM media_class.convert_image_to_bytes:ERROR:error: [Errno 2] No such file or directory: '/Users/lavishsaluja/ssTweet/images/neilkakkar.jpg12' reaised while reading the /Users/lavishsaluja/ssTweet/images/neilkakkar.jpg12 file
+02/05/2020 06_26_45 PM authorization_class.prompt_user_for_credentials:INFO:Prompting user to login to get their credentials for the defined scopes
+02/05/2020 06_27_00 PM flow.log_message:INFO:"GET /?state=v2xYRTuBK550qujj8JLKy8Zxp4dVyr&code=4/wAFroB0IXh2d68t075i-E3ZQ5ESsSyabnNfHoj0wcZSh0ThfqFGCHyqRXbSnWd8nJes9P7qhGip257_Wpjl2mSw&scope=https://www.googleapis.com/auth/photoslibrary.sharing%20https://www.googleapis.com/auth/photoslibrary HTTP/1.1" 200 318
+02/05/2020 06_27_02 PM media_class.retrieve_album_id:INFO:existing album: TweetBot
+02/05/2020 06_27_05 PM media_class.log_upload_activity:INFO:Added /Users/lavishsaluja/ssTweet/images/neilkakkar0.jpg to your album
+02/05/2020 06_27_08 PM media_class.log_upload_activity:INFO:Added /Users/lavishsaluja/ssTweet/images/neilkakkar1.jpg to your album
+02/05/2020 06_27_11 PM media_class.log_upload_activity:INFO:Added /Users/lavishsaluja/ssTweet/images/neilkakkar2.jpg to your album
+02/05/2020 06_27_14 PM media_class.log_upload_activity:INFO:Added /Users/lavishsaluja/ssTweet/images/neilkakkar3.jpg to your album
+02/05/2020 06_27_17 PM media_class.log_upload_activity:INFO:Added /Users/lavishsaluja/ssTweet/images/neilkakkar4.jpg to your album
+02/05/2020 06_27_20 PM media_class.log_upload_activity:INFO:Added /Users/lavishsaluja/ssTweet/images/neilkakkar5.jpg to your album
+02/05/2020 06_27_23 PM media_class.log_upload_activity:INFO:Added /Users/lavishsaluja/ssTweet/images/neilkakkar6.jpg to your album
+02/05/2020 06_27_26 PM media_class.log_upload_activity:INFO:Added /Users/lavishsaluja/ssTweet/images/neilkakkar7.jpg to your album
+02/05/2020 06_27_29 PM media_class.log_upload_activity:INFO:Added /Users/lavishsaluja/ssTweet/images/neilkakkar8.jpg to your album
+02/05/2020 06_27_33 PM media_class.log_upload_activity:INFO:Added /Users/lavishsaluja/ssTweet/images/neilkakkar9.jpg to your album
+02/05/2020 06_27_36 PM media_class.log_upload_activity:INFO:Added /Users/lavishsaluja/ssTweet/images/neilkakkar10.jpg to your album
+02/05/2020 06_27_38 PM media_class.log_upload_activity:INFO:Added /Users/lavishsaluja/ssTweet/images/neilkakkar11.jpg to your album
+02/05/2020 06_27_41 PM media_class.log_upload_activity:INFO:Added /Users/lavishsaluja/ssTweet/images/neilkakkar12.jpg to your album
