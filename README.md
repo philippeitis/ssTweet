@@ -21,11 +21,11 @@ ssTweet is a twitter bot which would upload the screenshot of every tweet in a t
     - [x] Classes for Albums, Users, Photos, Tweet Authors.
     - [ ] Add unit tests.
 - [ ] Solve the issue for authenticating account every time uploading a photo to Photos using `refresh_tokens`
-- [ ] Get the `url_list` of every tweet in a thread from the URL of first tweet.
-- [ ] Generate screenshot of every tweet in a thread and upload to Photos.
+- [x] Get the `url_list` of every tweet in a thread from the URL of first tweet.
+- [x] Generate screenshot of every tweet in a thread and upload to Photos.
 - [ ] Directly write the image to Google Photos instead of saving & uploading to save up on space.
 - [ ] Verify the ssTweet app with Google Photos to avoid unsafe error.
-- [ ] Instead of a tweet, make a `cli` tool first with a local DB.
+- [x] Instead of a tweet, make a `cli` tool first with a local DB.
 - [ ] Work on a simple website where users could connect their twitter and Google Photos account
 - [ ] Design the database needed to store the Photos `authentication_token` in encrypted format from Photos app and map them with Twitter usernames.
 - [ ] Convert the library to a twitter bot
