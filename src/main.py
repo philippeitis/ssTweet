@@ -16,6 +16,7 @@ def main():
     # auth_file_name='/Users/lavishsaluja/credentials/photos_cred.json'
     upload_image(photo_list, album_title, auth_file_name)
     # os.remove(filename+'.jpg')
+    
 
 
 if (__name__ == "__main__"):
