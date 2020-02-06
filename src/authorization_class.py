@@ -15,14 +15,14 @@ class Authorization:
     def __init__(self, scopes):
         self.scopes = scopes
 
-    def prompt_user_for_credentials(self, scopes):
+    def prompt_user_for_credentials(self):
         flow = InstalledAppFlow.from_client_secrets_file(
             '/Users/lavishsaluja/credentials/photos_cred.json',
-            scopes=scopes
+            scopes=self.scopes
         )
-        
+
         logging.info('Prompting user to login to get their credentials for the defined scopes')
-        
+
         return flow.run_local_server(
             host='localhost',
             port=8080,
@@ -38,11 +38,11 @@ class Authorization:
     def get_credentials(self, auth_file):
         if auth_file:
             try:
-                return Credentials.from_authorized_user_file(auth_file, self.scopes)
+                return Credentials.from_authorized_user_file(auth_file)
             except ValueError as err:
                 logging.error('the info (auth file) is not in the expected format: {}'.format(err))
                 raise err
-        return self.prompt_user_for_credentials(self.scopes)
+        return self.prompt_user_for_credentials()
 
     def get_auth_session(self, cred):
         return AuthorizedSession(cred)
