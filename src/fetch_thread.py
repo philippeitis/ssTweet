@@ -1,13 +1,10 @@
 import tweepy
-import sys
-
-sys.path.insert(1, '/Users/lavishsaluja/credentials')
-from twitter_credentials import consumer_key, consumer_secret, access_key, access_secret
+from config import CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET
 
 
 def get_api():
-    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-    auth.set_access_token(access_key, access_secret)
+    auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+    auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
     return tweepy.API(auth, wait_on_rate_limit=True)
 
 
