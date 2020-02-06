@@ -21,16 +21,19 @@ class Media:
         params = {
             'excludeNonAppCreatedData': created_by_app
         }
+        
         while True:
             albums = self.session.get(self.album_url, params=params).json()
             logging.debug("response: {}".format(albums))
-            if 'albums' in albums:
-                for album in albums["albums"]:
-                    yield album
-                if 'nextPageToken' in albums:
-                    params["pageToken"] = albums["nextPageToken"]
-                else:
-                    return
+            
+            if "albums" not in albums:
+                return
+            
+            for album in albums["albums"]:
+                yield album
+    
+            if 'nextPageToken' in albums:
+                params["pageToken"] = albums["nextPageToken"]
             else:
                 return
 
@@ -62,7 +65,7 @@ class Media:
         album_id = self.retrieve_album_id(album_title)
         if album_title and not album_id:
             logging.critical(
-                'upload interrupted. could  not verify album_id: {album_id} or album_title: {album_title}'.format(
+                'Upload was interrupted. Could not verify album_id: {album_id} or album_title: {album_title}'.format(
                     album_id=album_id, album_title=album_title))
             return None
 
@@ -71,22 +74,29 @@ class Media:
 
         for photo_name in photo_list:
             photo_bytes = convert_image_to_bytes(photo_name)
+
             if photo_bytes is None:
                 continue
+
             self.session.headers['X-Goog-Upload-File-Name'] = photo_name
             upload_token = self.session.post(self.upload_url, photo_bytes)
+
             if verify_upload_token(upload_token):
                 body = json.dumps(
-                    {"albumId": album_id,
-                     "newMediaItems": [
-                         {"description": "",
-                          "simpleMediaItem":
-                              {"uploadToken": upload_token.content.decode()}}
-                     ]
+                    {
+                        "albumId": album_id,
+                        "newMediaItems":
+                            [{
+                                "description": "",
+                                "simpleMediaItem": {"uploadToken": upload_token.content.decode()}
+                            }]
                      },
-                    indent=4)
+                    indent=4
+                )
+
                 new_media_items_result = self.session.post(url=self.media_items_url, data=body).json()
                 log_upload_activity(new_media_items_result, photo_name)
+
         try:
             del self.session.headers['Content-type']
             del self.session.headers['X-Goog-Upload-Protocol']
@@ -102,7 +112,7 @@ def log_upload_activity(response, photo_name):
         status = response['newMediaItemResults'][0]['status']
         if status.get('code') and status.get('code') != 0:
             logging.error(
-                f'could not add {photo_name} to the album. message: {status["message"]}'
+                f'Could not add {photo_name} to the album. Message: {status["message"]}'
             )
         else:
             logging.info('Added {photo_name} to your album'.format(photo_name=photo_name))
