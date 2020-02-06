@@ -91,7 +91,7 @@ class Media:
             del self.session.headers['Content-type']
             del self.session.headers['X-Goog-Upload-Protocol']
             del self.session.headers['X-Goog-Upload-File-Name']
-        except:
+        except (KeyError, NameError):
             pass
 
 
