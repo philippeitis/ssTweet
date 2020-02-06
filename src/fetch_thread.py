@@ -39,6 +39,6 @@ def update_urls(tweet, api):
             urls.append(get_twitter_url(user_name, reply.id))
             try:
                 urls.extend(update_urls(reply, api))
-            except Exception:
+            except tweepy.TweepError:
                 pass
     return urls
