@@ -30,7 +30,7 @@ def update_urls(tweet, api, urls):
             urls.append(get_twitter_url(user_name, reply.id))
             try:
                 for reply_to_reply in update_urls(reply, api, urls):
-                    pass
+                    urls.append(get_twitter_url(user_name, reply_to_reply.id))
             except Exception:
                 pass
         max_id = reply.id
