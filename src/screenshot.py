@@ -11,6 +11,9 @@ logging.basicConfig(
     level=logging.INFO
 )
 
+def delete_images(photo_list):
+    for photo in photo_list:
+        os.remove(photo)
 
 def save_images(url):
     api = get_api()

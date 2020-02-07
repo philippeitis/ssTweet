@@ -140,6 +140,7 @@ dmypy.json
 
 # secure tokens
 config.py
+gphotos_keys.json
 
 # Logs
 log_file

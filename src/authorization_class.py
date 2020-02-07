@@ -17,7 +17,7 @@ class Authorization:
 
     def prompt_user_for_credentials(self):
         flow = InstalledAppFlow.from_client_secrets_file(
-            '/Users/lavishsaluja/credentials/photos_cred.json',
+            'gphotos_keys.json',
             scopes=self.scopes
         )
 

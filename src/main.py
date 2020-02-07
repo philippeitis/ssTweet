@@ -1,4 +1,4 @@
-from screenshot import save_images
+from screenshot import save_images, delete_images
 from upload import upload_image
 import logging
 
@@ -11,13 +11,12 @@ logging.basicConfig(
 
 
 def main():
-    url = 'https://twitter.com/neilkakkar/status/1224738075940675584'
+    url = 'https://twitter.com/lavishsaluja/status/1225356209915453440'
     photo_list = save_images(url)
-    album_title = 'TweetBot'
+    album_title = 'Safemaps'
     auth_file_name = None
-    # auth_file_name='/Users/lavishsaluja/credentials/photos_cred.json'
     upload_image(photo_list, album_title, auth_file_name)
-    # os.remove(filename+'.jpg')
+    delete_images(photo_list)
 
 
 if __name__ == "__main__":
