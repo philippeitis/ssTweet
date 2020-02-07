@@ -134,10 +134,12 @@ dmypy.json
 # editor file
 .vscode/
 
-# logs
-.log_file
+# DS store binary files
 /.DS_Store
 .DS_Store
 
 # secure tokens
 config.py
+
+# Logs
+log_file
