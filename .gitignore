@@ -136,3 +136,4 @@ dmypy.json
 # logs
 /log_file
 /.DS_Store
+.DS_Store
