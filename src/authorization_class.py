@@ -1,6 +1,7 @@
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import AuthorizedSession
 from google.oauth2.credentials import Credentials
+import os
 import logging
 
 logging.basicConfig(
@@ -16,8 +17,9 @@ class Authorization:
         self.scopes = scopes
 
     def prompt_user_for_credentials(self):
+        path = os.path.dirname(os.path.abspath(__file__))
         flow = InstalledAppFlow.from_client_secrets_file(
-            'gphotos_keys.json',
+            path+'/gphotos_keys.json',
             scopes=self.scopes
         )
 
