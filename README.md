@@ -3,13 +3,30 @@
 #### About
 ssTweet is a twitter bot which would upload the screenshot of every tweet in a thread to Google Photos.
 
-#### sorted stuff that can be reused
-1. Wrote a Python client library for dealing with Google Photos API. Explore the Media and Authorization classes inside the src folder for easy access to almost all functions related to uploading stuff over Photos and creating albums.
-
-
-#### contributions
-* If you see my code getting devaiated from the [Python Coding Style Guide](https://www.python.org/dev/peps/pep-0008/). Please raise an issue or submit a pull request.
-* If you see something that could have been more Pythonic or something that violates the rule of keeping it simple. Please raise an issue or change it yourself.
+#### Setting Up the project
+After cloning the repo, you should create a new virtual env and install all dependencies from `requirements.txt` then create access_tokens from `twitter_developers` + access_tokens from `google_developers` and add them to two seperate files called `config.py` and `gphotos_keys.json` respectively. This is how both the files should look like:
+1. `config.py`
+    ```
+    CONSUMER_KEY = ""
+    CONSUMER_SECRET = ""
+    ACCESS_KEY = ""
+    ACCESS_SECRET = ""
+    ```
+2. `gphotos_keys.json`
+    ```
+    {
+    "installed":
+        {
+            "client_id":"",
+            "client_secret":"",
+            "auth_uri":"https://accounts.google.com/o/oauth2/auth",
+            "token_uri":"https://www.googleapis.com/oauth2/v3/token",
+            "auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs",
+            "redirect_uris":["urn:ietf:wg:oauth:2.0:oob","http://localhost"]
+        }
+    s}
+    ```
+Now, Just run `main.py`
 
 #### To-do
 - [x] Write a quick python module to prove the concept if everything works as expected. hard code most of the things.
@@ -30,7 +47,3 @@ ssTweet is a twitter bot which would upload the screenshot of every tweet in a t
 - [ ] Design the database needed to store the Photos `authentication_token` in encrypted format from Photos app and map them with Twitter usernames.
 - [ ] Convert the library to a twitter bot
 - [ ] Unroll the contents of the entire thread and upload a single screenshot with text of entire thread.
-- [ ] too much pending shit, already!
-
-### APIs used
-> Google Photos API, Twitter API, Google PageSpeed Insights API

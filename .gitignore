@@ -139,7 +139,7 @@ dmypy.json
 .DS_Store
 
 # secure tokens
-config.py
+twitter_keys.py
 gphotos_keys.json
 
 # Logs
