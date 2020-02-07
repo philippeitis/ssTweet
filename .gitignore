@@ -133,7 +133,11 @@ dmypy.json
 
 # editor file
 .vscode/
+
 # logs
 .log_file
 /.DS_Store
 .DS_Store
+
+# secure tokens
+config.py
